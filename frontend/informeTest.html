@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/formats.css">
+    <script type="text/javascript" src="js/events.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script lang="javascript" src="js/moment-with-locales.js"></script>
+    
+</head>
+
+<body>
+    
+
+
+
+
+    <!-- Modal -->
+
+        <div class="modal-body">
+          <div class="container">
+            <div class="row mt-4">
+              <div class="col-md">
+                <div class="form-group row">
+                    <label for="ProductoMasCaro" class="col-lg-3 col-form-label">Producto más caro:</label>
+                    <div class="col-lg-3" id="ProductoMasCaro"></div>
+                    <label for="PrecioMasCaro" class="col-lg-3 col-form-label">Precio:</label>
+                    <div class="col-lg-3" id="PrecioMasCaro"></div>
+                </div>
+      
+                <div class="form-group row">
+                    <label for="ProductoMasBarato" class="col-lg-3 col-form-label">Producto más barato:</label>
+                    <div class="col-lg-3" id="ProductoMasBarato"></div>
+                    <label for="PrecioMasBarato" class="col-lg-3 col-form-label">Precio:</label>
+                    <div class="col-lg-3" id="PrecioMasBarato"></div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="TotalVentas" class="col-lg-3 col-form-label">Total de ventas: </label>
+                    <div class="col-lg-3" id="TotalVentas"></div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="ModoPago1" class="col-lg-3 col-form-label">Modo de pago:</label>
+                    <div class="col-lg-3" id="ModoPago1"></div>
+                    <label for="CantidadModoPago1" class="col-lg-3 col-form-label">Cantidad de ventas:</label>
+                    <div class="col-lg-3" id="CantidadModoPago1"></div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="ModoPago2" class="col-lg-3 col-form-label">Modo de pago:</label>
+                    <div class="col-lg-3" id="ModoPago2"></div>
+                    <label for="CantidadModoPago2" class="col-lg-3 col-form-label">Cantidad de ventas:</label>
+                    <div class="col-lg-3" id="CantidadModoPago2"></div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="ModoPago3" class="col-lg-3 col-form-label">Modo de pago:</label>
+                    <div class="col-lg-3" id="ModoPago3"></div>
+                    <label for="CantidadModoPago3" class="col-lg-3 col-form-label">Cantidad de ventas:</label>
+                    <div class="col-lg-3" id="CantidadModoPago3"></div>
+                </div>
+
+              </div>
+            </div>
+      
+            <div class="row mt-4">
+              <div class="col-md">
+                <label> Informe Ventas</label>  
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID Producto</th>
+                      <th>Descripción</th>
+                      <th>Unidades Vendidas</th>
+                    </tr>
+                  </thead>
+                  <tbody id="InformeVentas"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md">
+                  <label> Unidades vendidas por modo de pago</label>  
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Modo de pago</th>
+                        <th>Cantidad de articulos</th>
+                      </tr>
+                    </thead>
+                    <tbody id="UnidadesVendidasPorModoPago"></tbody>
+                  </table>
+                </div>
+            </div>
+  
+            <div class="row mt-4">
+                <div class="col-md">
+                  <label> Informe facturas emitidas</label>  
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th> N° Factura </th>
+                        <th> Cliente </th>
+                        <th> Modo de pago </th>
+                        <th> Fecha </th>
+                        <th> Cantidad de artículos </th>
+                        <th> Total </th>
+                      </tr>
+                    </thead>
+                    <tbody id="InformeFacturas"></tbody>
+                  </table>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+        <script src="js/informeTest.js"> </script>
+
+
+
+</body>
+</html>

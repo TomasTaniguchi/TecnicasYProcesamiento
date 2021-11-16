@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Factura</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/formats.css">
+    <script type="text/javascript" src="js/events.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script lang="javascript" src="js/moment-with-locales.js"></script>
+
+    <style>
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 280px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+        background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container my-5">
+        <h2> Consultar Factura </h2>
+
+    </div>
+
+
+
+    <div class="container-fluid w-75 text-center" >
+        <div class="row">
+            <div class="col-2" ></div>
+            <div class="col-8">
+                <form>
+                    <div class="input-group" id="margin">
+                        <input type="number" id="formulario" class="form-control" required>
+                        <div class="input-group-btn" id="home">
+                            <button id="btnObtener" data-toggle="modal" data-target="#exampleModalLong" onclick="TraerFacturas(document.getElementById('formulario').value)" type="button" class="btn btn-danger">Obtener</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+      
+        </div>
+        <div class="col-2" ></div>
+    </div>
+
+    
+
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" style="max-width: 80%;" role="document" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Factura</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row mt-4">
+              <div class="col-md">
+                <div class="form-group row">
+                  <label for="CodigoFactura" class="col-lg-3 col-form-label"
+                    >Número de factura:</label
+                  >
+                  <div class="col-lg-3" id="CodigoFactura">
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                  <label for="Fecha" class="col-lg-3 col-form-label"
+                    >Fecha de emisión:</label
+                  >
+                  <div class="col-lg-3">
+                    <time id="fechaEmision"> </time>
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                  <label for="CodigoCliente" class="col-lg-3 col-form-label"
+                    >Cliente:
+                    </label>
+                  <div id="nombreCliente" class="col-lg-3"> </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="row mt-4">
+              <div class="col-md">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID Producto</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th>Precio Unitario</th>
+                      <th>Importe</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="DetalleFactura"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var input = document.getElementById("formulario");
+    input.addEventListener("keyup", function(event) {
+      console.log(event)
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("btnObtener").click();
+        }
+    });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="js/factura.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Cliente</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/formats.css">
+    <script type="text/javascript" src="js/events.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+
+
+</head>
+<body>
+
+    <div class="container my-5">
+        <h2> Alta Cliente </h2>
+        <form id="formularioAltaCliente">
+            <input type="text" id="apellido" name="apellido" placeholder="Ingresa apellido" class="form-control my-3" required>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa nombre" class="form-control my-3" required>
+            <input type="text" id="direccion" name="direccion" placeholder="Ingresa dirección" class="form-control my-3" required>
+            <input type="text" id="email" name="email" placeholder="Ingresa email" class="form-control my-3" required>
+            <input type="text" id="telefono" name="telefono" placeholder="Ingresa teléfono" class="form-control my-3" required>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa fecha de nacimiento" class="form-control my-3" required>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+        <div class="mt-3" id="respuesta">
+            
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="js/altaCliente.js"></script>
+
+
+</body>
+</html>
